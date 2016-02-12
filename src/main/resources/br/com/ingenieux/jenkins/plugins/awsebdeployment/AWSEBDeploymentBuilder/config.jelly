@@ -82,6 +82,16 @@
             <f:checkbox/>
         </f:entry>
 
+        <f:entry name="sleepTimeout" title="Status Check Sleep Timeout" field="sleepTimeout">
+            <select name="sleepTimeout">
+                <f:option value="90" selected="${instance.sleepTimeout =='90'}">90s</f:option>
+                <f:option value="60" selected="${instance.sleepTimeout =='60'}">60s</f:option>
+                <f:option value="30" selected="${instance.sleepTimeout =='30'}">30s</f:option>
+                <f:option value="15" selected="${instance.sleepTimeout =='15'}">15s</f:option>
+                <f:option value="10" selected="${instance.sleepTimeout =='10'}">10s</f:option>
+            </select>
+        </f:entry>
+
 
         <f:validateButton method="validateUpload" title="Explain Upload"
                           with="applicationName,bucketName,keyPrefix,versionLabelFormat"/>

@@ -107,4 +107,9 @@ public class DeployerContext implements Constants, Serializable {
      * SuccessfulP
      */
     boolean successfulP;
+
+    /**
+     * Sleep Timeout
+     */
+    int sleepTimeout;
 }

@@ -111,10 +111,10 @@ public class DeployerCommand implements Constants {
             setApplicationName(getDeployerConfig().getApplicationName());
             setVersionLabel(getDeployerConfig().getVersionLabelFormat());
             setEnvironmentName(getDeployerConfig().getEnvironmentName());
+            setSleepTimeout(Integer.valueOf(getDeployerConfig().getSleepTimeout()));
 
             Validate.notEmpty(getEnvironmentName(), "Empty/blank environmentName parameter");
             Validate.notEmpty(getApplicationName(), "Empty/blank applicationName parameter");
-
             Validate.notEmpty(getVersionLabel(), "Empty/blank versionLabel parameter");
 
             Validate.isTrue(getRootFileObject().exists(), "Root Object doesn't exist");
@@ -268,8 +268,8 @@ public class DeployerCommand implements Constants {
                         return false;
                     }
                 }
-
-                Thread.sleep(TimeUnit.SECONDS.toMillis(SLEEP_TIME));
+                log("Waiting " + getSleepTimeout() + " seconds to retry.");
+                Thread.sleep(TimeUnit.SECONDS.toMillis(getSleepTimeout()));
             }
 
             log("Environment Update timed-out. Aborting.");

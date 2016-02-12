@@ -132,6 +132,12 @@ public class AWSEBDeploymentBuilder extends Builder implements BuildStep {
     private String excludes;
 
     /**
+     * SleepTimeout
+     */
+    @Getter
+    private String sleepTimeout;
+
+    /**
      * Zero Downtime
      */
     @Getter
@@ -141,7 +147,7 @@ public class AWSEBDeploymentBuilder extends Builder implements BuildStep {
     public AWSEBDeploymentBuilder(String credentialId, String awsRegion, String applicationName,
                                   String environmentName, String bucketName, String keyPrefix,
                                   String versionLabelFormat, String rootObject, String includes,
-                                  String excludes, boolean zeroDowntime) {
+                                  String excludes, String sleepTimeout, boolean zeroDowntime) {
         this.credentialId = credentialId;
         this.awsRegion = awsRegion;
         this.applicationName = applicationName;
@@ -152,6 +158,7 @@ public class AWSEBDeploymentBuilder extends Builder implements BuildStep {
         this.rootObject = rootObject;
         this.includes = includes;
         this.excludes = excludes;
+        this.sleepTimeout = sleepTimeout;
         this.zeroDowntime = zeroDowntime;
     }
 
@@ -192,6 +199,7 @@ public class AWSEBDeploymentBuilder extends Builder implements BuildStep {
                 rootObject,
                 includes,
                 excludes,
+                sleepTimeout,
                 zeroDowntime,
                 null);
     }

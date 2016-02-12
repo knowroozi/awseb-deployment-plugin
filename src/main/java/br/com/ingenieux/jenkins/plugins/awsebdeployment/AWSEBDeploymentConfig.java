@@ -82,6 +82,11 @@ public class AWSEBDeploymentConfig implements Serializable {
   private String excludes;
 
   /**
+   * Sleep Timeout
+   */
+  private String sleepTimeout;
+
+  /**
    * Zero Downtime
    */
   private boolean zeroDowntime;
@@ -90,6 +95,7 @@ public class AWSEBDeploymentConfig implements Serializable {
    * Credentials
    */
   private AmazonWebServicesCredentials credentials;
+
 
   /**
    * Copy Factory
@@ -109,6 +115,7 @@ public class AWSEBDeploymentConfig implements Serializable {
         r.r(this.getRootObject()),
         r.r(this.getIncludes()),
         r.r(this.getExcludes()),
+        r.r(this.getSleepTimeout()),
         this.isZeroDowntime(),
         this.credentials
     );
